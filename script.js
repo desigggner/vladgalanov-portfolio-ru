@@ -113,71 +113,75 @@ function loadDeferredVideoSource(video) {
 }
 
 function setupHeroAvatarVideo() {
-  const avatarVideo = document.querySelector(".hero [data-avatar-video]");
+  const avatarVideos = Array.from(document.querySelectorAll("[data-avatar-video]")).filter(
+    (video) => video instanceof HTMLVideoElement,
+  );
 
-  if (!(avatarVideo instanceof HTMLVideoElement)) {
+  if (!avatarVideos.length) {
     return;
   }
 
-  avatarVideo.muted = true;
-  avatarVideo.defaultMuted = true;
+  avatarVideos.forEach((avatarVideo) => {
+    avatarVideo.muted = true;
+    avatarVideo.defaultMuted = true;
 
-  const revealVideo = () => {
-    avatarVideo.classList.add("is-ready");
-  };
+    const revealVideo = () => {
+      avatarVideo.classList.add("is-ready");
+    };
 
-  const hideVideo = () => {
-    avatarVideo.classList.remove("is-ready");
-  };
+    const hideVideo = () => {
+      avatarVideo.classList.remove("is-ready");
+    };
 
-  const attemptPlayback = () => {
-    loadDeferredVideoSource(avatarVideo);
+    const attemptPlayback = () => {
+      loadDeferredVideoSource(avatarVideo);
 
-    const playPromise = avatarVideo.play();
+      const playPromise = avatarVideo.play();
 
-    if (playPromise && typeof playPromise.then === "function") {
-      playPromise.then(revealVideo).catch(hideVideo);
+      if (playPromise && typeof playPromise.then === "function") {
+        playPromise.then(revealVideo).catch(hideVideo);
+        return;
+      }
+
+      revealVideo();
+    };
+
+    avatarVideo.addEventListener("loadeddata", attemptPlayback, { once: true });
+    avatarVideo.addEventListener("playing", revealVideo, { once: true });
+    avatarVideo.addEventListener("error", hideVideo);
+
+    const videoRoot = avatarVideo.closest("[data-avatar-video-root]") || avatarVideo.closest(".hero");
+
+    if (!videoRoot || !("IntersectionObserver" in window)) {
+      window.requestAnimationFrame(attemptPlayback);
       return;
     }
 
-    revealVideo();
-  };
+    const rootRect = videoRoot.getBoundingClientRect();
 
-  avatarVideo.addEventListener("loadeddata", attemptPlayback, { once: true });
-  avatarVideo.addEventListener("playing", revealVideo, { once: true });
-  avatarVideo.addEventListener("error", hideVideo);
+    if (rootRect.bottom > 0 && rootRect.top < window.innerHeight) {
+      window.requestAnimationFrame(attemptPlayback);
+    }
 
-  const hero = avatarVideo.closest(".hero");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            avatarVideo.pause();
+            return;
+          }
 
-  if (!hero || !("IntersectionObserver" in window)) {
-    window.requestAnimationFrame(attemptPlayback);
-    return;
-  }
+          attemptPlayback();
+        });
+      },
+      {
+        threshold: 0.18,
+        rootMargin: "160px 0px",
+      },
+    );
 
-  const heroRect = hero.getBoundingClientRect();
-
-  if (heroRect.bottom > 0 && heroRect.top < window.innerHeight) {
-    window.requestAnimationFrame(attemptPlayback);
-  }
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          avatarVideo.pause();
-          return;
-        }
-
-        attemptPlayback();
-      });
-    },
-    {
-      threshold: 0.18,
-      rootMargin: "160px 0px",
-    },
-  );
-
-  observer.observe(hero);
+    observer.observe(videoRoot);
+  });
 }
 
 function setupCompaniesMarquee() {

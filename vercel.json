@@ -31,6 +31,11 @@
       "permanent": true
     },
     {
+      "source": "/new.html",
+      "destination": "/new",
+      "permanent": true
+    },
+    {
       "source": "/auth.html",
       "destination": "/auth",
       "permanent": true
@@ -73,6 +78,10 @@
     {
       "source": "/invert",
       "destination": "/invert.html"
+    },
+    {
+      "source": "/new",
+      "destination": "/new.html"
     },
     {
       "source": "/auth",
