@@ -185,6 +185,61 @@ function setupHeroAvatarVideo() {
   });
 }
 
+function setupDeferredCaseVideos() {
+  const caseVideos = Array.from(document.querySelectorAll("[data-case-video]")).filter(
+    (video) => video instanceof HTMLVideoElement,
+  );
+
+  if (!caseVideos.length) {
+    return;
+  }
+
+  caseVideos.forEach((caseVideo) => {
+    caseVideo.muted = true;
+    caseVideo.defaultMuted = true;
+
+    const attemptPlayback = () => {
+      if (prefersReducedMotion.matches) {
+        return;
+      }
+
+      loadDeferredVideoSource(caseVideo);
+
+      const playPromise = caseVideo.play();
+
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => {});
+      }
+    };
+
+    const videoRoot = caseVideo.closest(".new-visual") || caseVideo;
+
+    if (!("IntersectionObserver" in window)) {
+      window.requestAnimationFrame(attemptPlayback);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            caseVideo.pause();
+            return;
+          }
+
+          attemptPlayback();
+        });
+      },
+      {
+        threshold: 0.08,
+        rootMargin: "640px 0px",
+      },
+    );
+
+    observer.observe(videoRoot);
+  });
+}
+
 function setupCompaniesMarquee() {
   const companiesSection = document.querySelector(".companies");
 
@@ -321,6 +376,7 @@ if (!isNewPage) {
 }
 setupMobileNav();
 setupHeroAvatarVideo();
+setupDeferredCaseVideos();
 setupCompaniesMarquee();
 setupHomeQuickNav();
 initHeroIntro();

@@ -3,3 +3,4 @@
 .env.local
 .analytics/
 .cases/
+artifacts/

@@ -2133,15 +2133,31 @@ html {
     aspect-ratio: 358 / 248;
   }
 
-  .new-visual--single-phone {
-    border: 0;
-  }
-
   .new-visual--phones {
     gap: 4.324%;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 24px;
     background: #0f0f0f;
+  }
+
+  .new-visual--single-phone,
+  .new-visual--tabbar,
+  .new-visual--list,
+  .new-pulse-visual--profile,
+  .new-sber-visual--half {
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #0f0f0f;
+  }
+
+  .new-pulse-visual--hero,
+  .new-pulse-visual--cards,
+  .new-pulse-visual--circle,
+  .new-sber-visual--top,
+  .new-sber-visual--video {
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #000000;
   }
 
   .new-visual--phones img,
