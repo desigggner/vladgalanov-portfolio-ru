@@ -213,85 +213,28 @@ function setupCompaniesMarquee() {
   observer.observe(companiesSection);
 }
 
-function setupMessageScroll() {
-  const section = document.querySelector(".message-scroll");
-  const fillText = section?.querySelector(".message-scroll__text--fill");
-  const leftCircle = section?.querySelector(".message-scroll__circle--left");
-  const rightCircle = section?.querySelector(".message-scroll__circle--right");
-  const gsapLib = window.gsap;
-  const scrollTrigger = window.ScrollTrigger;
+function setupHomeQuickNav() {
+  const quickNav = document.querySelector("[data-home-quick-nav]");
+  const desktopMedia = window.matchMedia("(min-width: 721px)");
 
-  if (
-    !(section instanceof HTMLElement) ||
-    !(fillText instanceof HTMLElement) ||
-    !(leftCircle instanceof HTMLElement) ||
-    !(rightCircle instanceof HTMLElement)
-  ) {
+  if (!(quickNav instanceof HTMLElement)) {
     return;
   }
 
-  if (!gsapLib || !scrollTrigger || prefersReducedMotion.matches) {
-    fillText.style.clipPath = "inset(0 0 0 0)";
-    leftCircle.style.borderColor = "#2bd4ff";
-    rightCircle.style.borderColor = "#2bd4ff";
-    leftCircle.style.transform = "translate3d(0, 0, 0)";
-    rightCircle.style.transform = "translate3d(0, 0, 0)";
-    return;
-  }
-
-  gsapLib.registerPlugin(scrollTrigger);
-
-  const getCircleTravel = () => {
-    const sectionWidth = section.clientWidth || window.innerWidth;
-    return Math.min(136, Math.max(56, sectionWidth * 0.11));
+  const syncQuickNavState = () => {
+    const shouldShow = desktopMedia.matches && window.scrollY > 18;
+    quickNav.classList.toggle("is-visible", shouldShow);
   };
 
-  gsapLib.timeline({
-    defaults: {
-      ease: "none",
-    },
-    scrollTrigger: {
-      trigger: section,
-      start: "top 75%",
-      end: "top 35%",
-      scrub: true,
-      invalidateOnRefresh: true,
-    },
-  })
-    .fromTo(
-      fillText,
-      {
-        clipPath: "inset(0 100% 0 0)",
-      },
-      {
-        clipPath: "inset(0 0% 0 0)",
-      },
-      0,
-    )
-    .fromTo(
-      leftCircle,
-      {
-        x: () => -getCircleTravel(),
-        borderColor: "rgba(255, 255, 255, 0.18)",
-      },
-      {
-        x: 0,
-        borderColor: "#2bd4ff",
-      },
-      0,
-    )
-    .fromTo(
-      rightCircle,
-      {
-        x: () => getCircleTravel(),
-        borderColor: "rgba(255, 255, 255, 0.18)",
-      },
-      {
-        x: 0,
-        borderColor: "#2bd4ff",
-      },
-      0,
-    );
+  syncQuickNavState();
+  window.addEventListener("scroll", syncQuickNavState, { passive: true });
+  window.addEventListener("resize", syncQuickNavState);
+
+  if (typeof desktopMedia.addEventListener === "function") {
+    desktopMedia.addEventListener("change", syncQuickNavState);
+  } else if (typeof desktopMedia.addListener === "function") {
+    desktopMedia.addListener(syncQuickNavState);
+  }
 }
 
 function syncMobileNavState() {
@@ -372,5 +315,5 @@ ensureTopOnInitialLoad();
 setupMobileNav();
 setupHeroAvatarVideo();
 setupCompaniesMarquee();
-setupMessageScroll();
+setupHomeQuickNav();
 initHeroIntro();

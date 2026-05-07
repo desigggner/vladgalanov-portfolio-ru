@@ -102,6 +102,10 @@ body.is-admin-open {
   overflow: hidden;
 }
 
+.page-shell {
+  position: relative;
+}
+
 button,
 a {
   -webkit-tap-highlight-color: transparent;
@@ -3050,7 +3054,8 @@ html[data-theme="dark"] .site-footer__chip-icon {
   }
 
   .message-scroll[data-deferred-section] {
-    --deferred-block-size: 960px;
+    content-visibility: visible;
+    contain-intrinsic-size: none;
   }
 
   .figma-about[data-deferred-section] {
