@@ -1,5 +1,6 @@
 const root = document.documentElement;
 root.classList.add("js-ready");
+const isNewPage = document.body.classList.contains("new-page");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const mobileNavMedia = window.matchMedia("(max-width: 720px)");
 const mobileNav = document.querySelector("[data-mobile-nav]");
@@ -315,7 +316,9 @@ function setupMobileNav() {
 }
 
 applyTheme();
-ensureTopOnInitialLoad();
+if (!isNewPage) {
+  ensureTopOnInitialLoad();
+}
 setupMobileNav();
 setupHeroAvatarVideo();
 setupCompaniesMarquee();
