@@ -240,6 +240,44 @@ function setupDeferredCaseVideos() {
   });
 }
 
+function setupCaseMediaProtection() {
+  if (!isNewPage) {
+    return;
+  }
+
+  const protectedMedia = Array.from(
+    document.querySelectorAll(".new-case__visuals img, .new-case__visuals video"),
+  );
+
+  protectedMedia.forEach((media) => {
+    media.setAttribute("draggable", "false");
+  });
+
+  const isProtectedCaseMediaEvent = (event) => {
+    const target = event.target;
+
+    return target instanceof Element && Boolean(target.closest(".new-case__visuals"));
+  };
+
+  document.addEventListener("contextmenu", (event) => {
+    if (isProtectedCaseMediaEvent(event)) {
+      event.preventDefault();
+    }
+  });
+
+  document.addEventListener("dragstart", (event) => {
+    if (isProtectedCaseMediaEvent(event)) {
+      event.preventDefault();
+    }
+  });
+
+  document.addEventListener("copy", (event) => {
+    if (isProtectedCaseMediaEvent(event)) {
+      event.preventDefault();
+    }
+  });
+}
+
 function setupCaseStackAnimations() {
   const sections = Array.from(document.querySelectorAll("[data-case-stack-section]")).filter(
     (section) => section instanceof HTMLElement,
@@ -611,6 +649,7 @@ if (!isNewPage) {
 setupMobileNav();
 setupHeroAvatarVideo();
 setupDeferredCaseVideos();
+setupCaseMediaProtection();
 setupCaseStackAnimations();
 setupCompaniesMarquee();
 setupHomeQuickNav();

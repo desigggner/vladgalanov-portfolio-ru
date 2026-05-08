@@ -659,6 +659,14 @@ html {
   width: 740px;
 }
 
+.new-case__visuals,
+.new-case__visuals img,
+.new-case__visuals video {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+
 .new-case__visuals--pulse {
   height: 1824px;
 }

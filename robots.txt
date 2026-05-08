@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+Disallow: /new
+Disallow: /new.html
+Disallow: /old-home
+Disallow: /old-home.html
+Disallow: /about
+Disallow: /about.html
+Disallow: /portfolio
+Disallow: /portfolio.html
+Disallow: /media
+Disallow: /media.html
+Disallow: /invert
+Disallow: /invert.html
+Disallow: /auth
+Disallow: /auth.html
+Disallow: /admin
+Disallow: /api
+Disallow: /errors
+
+Sitemap: https://vladgalanov.ru/sitemap.xml
