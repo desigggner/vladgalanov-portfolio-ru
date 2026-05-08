@@ -36,6 +36,11 @@
       "permanent": true
     },
     {
+      "source": "/old-home.html",
+      "destination": "/old-home",
+      "permanent": true
+    },
+    {
       "source": "/auth.html",
       "destination": "/auth",
       "permanent": true
@@ -82,6 +87,10 @@
     {
       "source": "/new",
       "destination": "/new.html"
+    },
+    {
+      "source": "/old-home",
+      "destination": "/old-home.html"
     },
     {
       "source": "/auth",
