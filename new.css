@@ -550,18 +550,6 @@ html {
   height: 32px;
 }
 
-.new-case__brandmark span {
-  position: absolute;
-  top: 9.91px;
-  left: 9.83px;
-  color: #111111;
-  font-size: 14.946px;
-  font-style: italic;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: -0.598px;
-}
-
 .new-case__title {
   margin: -4px 0 0;
   color: #ffffff;
