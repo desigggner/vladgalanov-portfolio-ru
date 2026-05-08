@@ -19,3 +19,4 @@ Disallow: /api
 Disallow: /errors
 
 Sitemap: https://vladgalanov.ru/sitemap.xml
+Sitemap: https://halanov-portfolio.vercel.app/sitemap.xml
