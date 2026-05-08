@@ -2216,7 +2216,7 @@ html {
   }
 
   .new-intro__inner {
-    gap: 28px;
+    gap: 22px;
   }
 
   .new-intro__inner,
@@ -2284,31 +2284,59 @@ html {
   }
 
   .new-social-cards {
-    flex-direction: row;
-    gap: 16px;
+    flex-direction: column;
+    gap: 24px;
     width: 100%;
   }
 
   .new-intro .new-social-card {
-    flex: 1 1 0;
-    width: auto;
-    height: clamp(156px, 42vw, 222px);
+    flex: none;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    height: 154px;
     min-height: 0;
-    gap: clamp(18px, 5vw, 34px);
-    padding: 12px;
-    border-radius: 22px;
+    max-height: none;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 24px;
+  }
+
+  .new-intro .new-social-card--contact {
+    order: 1;
+  }
+
+  .new-intro .new-social-card--channel {
+    order: 2;
   }
 
   .new-social-cards--contact {
     flex-direction: column;
-    gap: 16px;
+    gap: 24px;
     width: 100%;
   }
 
   .new-social-cards--contact .new-social-card {
     flex: none;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
     width: 100%;
-    aspect-ratio: 1 / 0.68;
+    height: 154px;
+    min-height: 0;
+    gap: 16px;
+    padding: 16px;
+    aspect-ratio: auto;
+    border-radius: 24px;
+  }
+
+  .new-social-cards--contact .new-social-card--contact {
+    order: 1;
+  }
+
+  .new-social-cards--contact .new-social-card--channel {
+    order: 2;
   }
 
   .new-social-card__image,
@@ -2316,43 +2344,79 @@ html {
   .new-social-card__image img,
   .new-social-card__image .hero__avatar-media,
   .new-social-card__image .hero__avatar-fallback {
-    border-radius: 22px;
-  }
-
-  .new-intro .new-social-card::before,
-  .new-intro .new-social-card__image {
-    width: clamp(58px, 18vw, 96px);
-    height: clamp(58px, 18vw, 96px);
     border-radius: 9999px;
   }
 
+  .new-intro .new-social-card::before,
+  .new-intro .new-social-card__image,
+  .new-social-cards--contact .new-social-card::before,
+  .new-social-cards--contact .new-social-card__image {
+    width: 122px;
+    height: 122px;
+    border-radius: 9999px;
+  }
+
+  .new-intro .new-social-card::before,
+  .new-social-cards--contact .new-social-card::before {
+    top: 16px;
+    right: 16px;
+    left: auto;
+  }
+
+  .new-intro .new-social-card__image,
+  .new-social-cards--contact .new-social-card__image {
+    order: 2;
+  }
+
   .new-intro .new-social-card__icon {
-    top: 12px;
-    left: calc(12px + clamp(58px, 18vw, 96px) - 28px);
-    width: 28px;
-    height: 28px;
+    top: 16px;
+    right: 16px;
+    left: auto;
+    width: 32px;
+    height: 32px;
+  }
+
+  .new-social-cards--contact .new-social-card__icon {
+    top: 16px;
+    right: 16px;
+    left: auto;
+    width: 32px;
+    height: 32px;
+  }
+
+  .new-intro .new-social-card__content,
+  .new-social-cards--contact .new-social-card__content {
+    order: 1;
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 0;
   }
 
   .new-intro .new-social-card__title,
-  .new-intro .new-social-card__meta {
-    font-size: 12px;
-    line-height: 16px;
+  .new-intro .new-social-card__meta,
+  .new-social-cards--contact .new-social-card__title,
+  .new-social-cards--contact .new-social-card__meta {
+    font-size: 16px;
+    line-height: 22px;
   }
 
-  .new-intro .new-social-card__meta {
-    gap: 3px;
+  .new-intro .new-social-card__meta,
+  .new-social-cards--contact .new-social-card__meta {
+    gap: 4px;
   }
 
-  .new-intro .new-social-card__meta img {
-    width: 16px;
-    height: 16px;
+  .new-intro .new-social-card__meta img,
+  .new-social-cards--contact .new-social-card__meta img {
+    width: 16.971px;
+    height: 16.971px;
+    margin: 3.514px;
   }
 
   .new-hero-tags {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 8px 12px;
+    gap: 6px 10px;
     width: 100%;
     height: auto;
   }
@@ -2363,6 +2427,8 @@ html {
     height: auto;
     padding: 0;
     border: 0;
+    font-size: 12px;
+    line-height: 16px;
   }
 
   .new-case {
@@ -2493,6 +2559,18 @@ html {
 
   .new-sber-visual--half {
     aspect-ratio: 358 / 400;
+  }
+
+  .new-sber-visual-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .new-sber-visual-row .new-sber-visual,
+  .new-sber-visual--half {
+    width: 100%;
+    height: auto;
   }
 
   .new-skillaz-visual--split {
