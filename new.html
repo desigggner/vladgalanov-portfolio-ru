@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="./new.css" />
   </head>
-  <body class="new-page">
+  <body class="new-page enableCaseStackAnimation">
     <div class="new-frame" id="top">
       <header class="new-topbar" aria-label="Логотип">
         <a class="new-brand" href="/" aria-label="На главную">
@@ -36,7 +36,7 @@
             </div>
 
             <div class="new-social-cards" aria-label="Профили">
-              <a class="new-social-card" href="https://t.me/desigggner" target="_blank" rel="noreferrer">
+              <a class="new-social-card new-social-card--channel" href="https://t.me/desigggner" target="_blank" rel="noreferrer">
                 <span class="new-social-card__image" aria-hidden="true">
                   <img src="./assets/new/card-desigggner.jpg" alt="" />
                 </span>
@@ -56,28 +56,9 @@
                 </span>
               </a>
 
-              <a class="new-social-card" href="https://t.me/desigggner" target="_blank" rel="noreferrer">
-                <span class="new-social-card__image new-social-card__image--video" aria-hidden="true" data-avatar-video-root>
-                  <img
-                    class="hero__avatar-fallback"
-                    src="./assets/new/card-contact.jpg"
-                    alt=""
-                    width="80"
-                    height="80"
-                    decoding="async"
-                    fetchpriority="high"
-                  />
-                  <video
-                    class="hero__avatar-media"
-                    data-avatar-video
-                    data-video-src="./video/avatar2.mp4"
-                    autoplay
-                    muted
-                    loop
-                    playsinline
-                    preload="metadata"
-                    aria-hidden="true"
-                  ></video>
+              <a class="new-social-card new-social-card--contact" href="https://t.me/desigggner" target="_blank" rel="noreferrer">
+                <span class="new-social-card__image" aria-hidden="true">
+                  <img src="./assets/new/card-contact.jpg" alt="" />
                 </span>
                 <span class="new-social-card__icon" aria-hidden="true">
                   <span class="new-icon new-icon--telegram new-icon--small">
@@ -97,14 +78,18 @@
             </div>
 
             <div class="new-hero-tags" aria-label="Ключевые компетенции">
-              <span>Запускал продукты с нуля</span>
-              <span>Проектировал AI-сценарии</span>
-              <span>Строил дизайн-системы</span>
+              <span>#запускал продукты с нуля</span>
+              <span>#проектировал AI-сценарии</span>
+              <span>#строил дизайн-системы</span>
             </div>
+          </div>
+          <div class="new-intro__cursor" aria-hidden="true">
+            <img src="./assets/new/hero-cursor.svg" alt="" width="17" height="17" />
+            <span>Влад</span>
           </div>
         </section>
 
-        <section class="new-case" aria-labelledby="new-case-title">
+        <section class="new-case new-case--invert" aria-labelledby="new-case-title" data-case-stack-section>
           <aside class="new-case__info">
             <div class="new-case__info-stack">
               <div class="new-case__heading">
@@ -158,18 +143,18 @@
             </div>
           </aside>
 
-          <div class="new-case__visuals" aria-label="Визуальные материалы Invert">
-            <figure class="new-visual new-visual--cover">
+          <div class="new-case__visuals new-case__visuals--invert" aria-label="Визуальные материалы Invert" data-case-stack>
+            <figure class="new-visual new-visual--cover" data-case-stack-card>
               <img src="./assets/new/invert-hero.png" alt="" width="740" height="444" loading="lazy" decoding="async" />
             </figure>
 
-            <figure class="new-visual new-visual--phones">
-              <img src="./assets/new/phone-280.png" alt="" width="139" height="300" loading="lazy" decoding="async" />
+            <figure class="new-visual new-visual--phones" data-case-stack-card>
               <img src="./assets/new/phone-284.png" alt="" width="139" height="300" loading="lazy" decoding="async" />
+              <img src="./assets/new/phone-280.png" alt="" width="139" height="300" loading="lazy" decoding="async" />
               <img src="./assets/new/phone-282.png" alt="" width="139" height="300" loading="lazy" decoding="async" />
             </figure>
 
-            <figure class="new-visual new-visual--components">
+            <figure class="new-visual new-visual--components" data-case-stack-card>
               <video
                 class="new-visual__media"
                 data-case-video
@@ -184,20 +169,20 @@
               ></video>
             </figure>
 
-            <div class="new-visual-row">
-              <figure class="new-visual new-visual--single-phone">
+            <div class="new-visual-row new-visual-row--invert-grid" data-case-stack-card>
+              <figure class="new-visual new-visual--single-phone new-visual--invert-grid-card">
                 <img src="./assets/new/phone-285.png" alt="" width="139" height="300" loading="lazy" decoding="async" />
               </figure>
-              <figure class="new-visual new-visual--tabbar">
+              <figure class="new-visual new-visual--tabbar new-visual--invert-grid-card">
                 <img src="./assets/new/tabbar-288.png" alt="" width="354" height="97" loading="lazy" decoding="async" />
               </figure>
             </div>
 
-            <div class="new-visual-row">
-              <figure class="new-visual new-visual--list">
+            <div class="new-visual-row new-visual-row--invert-grid new-visual-row--invert-grid-bottom" data-case-stack-card>
+              <figure class="new-visual new-visual--list new-visual--invert-grid-card">
                 <img src="./assets/new/list-287.png" alt="" width="294" height="261" loading="lazy" decoding="async" />
               </figure>
-              <figure class="new-visual new-visual--single-phone">
+              <figure class="new-visual new-visual--single-phone new-visual--invert-grid-card">
                 <video
                   class="new-visual__media"
                   data-case-video
@@ -215,7 +200,7 @@
           </div>
         </section>
 
-        <section class="new-case new-case--pulse" aria-labelledby="new-pulse-title">
+        <section class="new-case new-case--pulse" aria-labelledby="new-pulse-title" data-case-stack-section>
           <aside class="new-case__info new-case__info--pulse">
             <div class="new-case__info-stack">
               <div class="new-case__heading">
@@ -254,8 +239,8 @@
             </div>
           </aside>
 
-          <div class="new-case__visuals new-case__visuals--pulse" aria-label="Визуальные материалы Пульс 2.0">
-            <figure class="new-visual new-pulse-visual new-pulse-visual--hero">
+          <div class="new-case__visuals new-case__visuals--pulse" aria-label="Визуальные материалы Пульс 2.0" data-case-stack>
+            <figure class="new-visual new-pulse-visual new-pulse-visual--hero" data-case-stack-card>
               <video
                 class="new-visual__media"
                 data-case-video
@@ -270,11 +255,11 @@
               ></video>
             </figure>
 
-            <figure class="new-visual new-pulse-visual new-pulse-visual--profile">
+            <figure class="new-visual new-pulse-visual new-pulse-visual--profile" data-case-stack-card>
               <img src="./assets/new/pulse-profile-card.png" alt="" width="564" height="255" loading="lazy" decoding="async" />
             </figure>
 
-            <figure class="new-visual new-pulse-visual new-pulse-visual--cards">
+            <figure class="new-visual new-pulse-visual new-pulse-visual--cards" data-case-stack-card>
               <video
                 class="new-visual__media"
                 data-case-video
@@ -289,7 +274,7 @@
               ></video>
             </figure>
 
-            <figure class="new-visual new-pulse-visual new-pulse-visual--circle">
+            <figure class="new-visual new-pulse-visual new-pulse-visual--circle" data-case-stack-card>
               <video
                 class="new-visual__media"
                 data-case-video
@@ -304,13 +289,13 @@
               ></video>
             </figure>
 
-            <figure class="new-visual new-pulse-visual new-pulse-visual--nda">
+            <figure class="new-visual new-pulse-visual new-pulse-visual--nda" data-case-stack-card>
               <span>NDA</span>
             </figure>
           </div>
         </section>
 
-        <section class="new-case new-case--sber" aria-labelledby="new-sber-title">
+        <section class="new-case new-case--sber" aria-labelledby="new-sber-title" data-case-stack-section>
           <aside class="new-case__info new-case__info--sber">
             <div class="new-case__info-stack">
               <div class="new-case__heading">
@@ -354,12 +339,12 @@
             </div>
           </aside>
 
-          <div class="new-case__visuals new-case__visuals--sber" aria-label="Визуальные материалы Банкоматы СБЕРа">
-            <figure class="new-visual new-sber-visual new-sber-visual--top">
+          <div class="new-case__visuals new-case__visuals--sber" aria-label="Визуальные материалы Банкоматы СБЕРа" data-case-stack>
+            <figure class="new-visual new-sber-visual new-sber-visual--top" data-case-stack-card>
               <img src="./assets/new/sber-card-1.png" alt="" width="740" height="400" loading="lazy" decoding="async" />
             </figure>
 
-            <figure class="new-visual new-sber-visual new-sber-visual--video">
+            <figure class="new-visual new-sber-visual new-sber-visual--video" data-case-stack-card>
               <video
                 class="new-visual__media"
                 data-case-video
@@ -374,7 +359,7 @@
               ></video>
             </figure>
 
-            <div class="new-sber-visual-row">
+            <div class="new-sber-visual-row" data-case-stack-card>
               <figure class="new-visual new-sber-visual new-sber-visual--half">
                 <img src="./assets/new/sber-card-3-left.png" alt="" width="358" height="400" loading="lazy" decoding="async" />
               </figure>
@@ -385,7 +370,7 @@
           </div>
         </section>
 
-        <section class="new-case new-case--skillaz" aria-labelledby="new-skillaz-title">
+        <section class="new-case new-case--skillaz" aria-labelledby="new-skillaz-title" data-case-stack-section>
           <aside class="new-case__info new-case__info--skillaz">
             <div class="new-case__info-stack">
               <div class="new-case__heading">
@@ -425,8 +410,8 @@
             </div>
           </aside>
 
-          <div class="new-case__visuals new-case__visuals--skillaz" aria-label="Визуальные материалы Skillaz">
-            <figure class="new-visual new-skillaz-visual new-skillaz-visual--top">
+          <div class="new-case__visuals new-case__visuals--skillaz" aria-label="Визуальные материалы Skillaz" data-case-stack>
+            <figure class="new-visual new-skillaz-visual new-skillaz-visual--top" data-case-stack-card>
               <video
                 class="new-visual__media new-skillaz-video"
                 data-case-video
@@ -441,11 +426,11 @@
               ></video>
             </figure>
 
-            <figure class="new-visual new-skillaz-visual new-skillaz-visual--scroll new-skillaz-visual--screen-2">
+            <figure class="new-visual new-skillaz-visual new-skillaz-visual--scroll new-skillaz-visual--screen-2" data-case-stack-card>
               <img src="./assets/new/skillaz-card-2.png" alt="" width="492" height="589" loading="lazy" decoding="async" />
             </figure>
 
-            <div class="new-skillaz-row">
+            <div class="new-skillaz-row" data-case-stack-card>
               <figure class="new-visual new-skillaz-visual new-skillaz-visual--split">
                 <img src="./assets/new/skillaz-card-3-left.png" alt="" width="294" height="138" loading="lazy" decoding="async" />
               </figure>
@@ -454,19 +439,19 @@
               </figure>
             </div>
 
-            <figure class="new-visual new-skillaz-visual new-skillaz-visual--scroll new-skillaz-visual--screen-4">
+            <figure class="new-visual new-skillaz-visual new-skillaz-visual--scroll new-skillaz-visual--screen-4" data-case-stack-card>
               <img src="./assets/new/skillaz-card-4.png" alt="" width="492" height="622" loading="lazy" decoding="async" />
             </figure>
 
-            <figure class="new-visual new-skillaz-visual new-skillaz-visual--scroll new-skillaz-visual--screen-5">
+            <figure class="new-visual new-skillaz-visual new-skillaz-visual--scroll new-skillaz-visual--screen-5" data-case-stack-card>
               <img src="./assets/new/skillaz-card-5.png" alt="" width="492" height="721" loading="lazy" decoding="async" />
             </figure>
 
-            <figure class="new-visual new-skillaz-visual new-skillaz-visual--scroll new-skillaz-visual--screen-6">
+            <figure class="new-visual new-skillaz-visual new-skillaz-visual--scroll new-skillaz-visual--screen-6" data-case-stack-card>
               <img src="./assets/new/skillaz-card-6.png" alt="" width="492" height="451" loading="lazy" decoding="async" />
             </figure>
 
-            <div class="new-skillaz-row">
+            <div class="new-skillaz-row" data-case-stack-card>
               <figure class="new-visual new-skillaz-visual new-skillaz-visual--compact new-skillaz-visual--icon">
                 <img src="./assets/new/skillaz-card-7-left.png" alt="" width="184" height="184" loading="lazy" decoding="async" />
               </figure>
@@ -475,7 +460,7 @@
               </figure>
             </div>
 
-            <figure class="new-visual new-skillaz-visual new-skillaz-visual--banner">
+            <figure class="new-visual new-skillaz-visual new-skillaz-visual--banner" data-case-stack-card>
               <img src="./assets/new/skillaz-card-8.png" alt="" width="676" height="102" loading="lazy" decoding="async" />
             </figure>
           </div>
@@ -487,7 +472,7 @@
 
             <div class="new-contact-section__content">
               <div class="new-social-cards new-social-cards--contact" aria-label="Профили">
-                <a class="new-social-card" href="https://t.me/desigggner" target="_blank" rel="noreferrer">
+                <a class="new-social-card new-social-card--channel" href="https://t.me/desigggner" target="_blank" rel="noreferrer">
                   <span class="new-social-card__image" aria-hidden="true">
                     <img src="./assets/new/card-desigggner.jpg" alt="" loading="lazy" decoding="async" />
                   </span>
@@ -507,28 +492,9 @@
                   </span>
                 </a>
 
-                <a class="new-social-card" href="https://t.me/desigggner" target="_blank" rel="noreferrer">
-                  <span class="new-social-card__image new-social-card__image--video" aria-hidden="true" data-avatar-video-root>
-                    <img
-                      class="hero__avatar-fallback"
-                      src="./assets/new/card-contact.jpg"
-                      alt=""
-                      width="80"
-                      height="80"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <video
-                      class="hero__avatar-media"
-                      data-avatar-video
-                      data-video-src="./video/avatar2.mp4"
-                      autoplay
-                      muted
-                      loop
-                      playsinline
-                      preload="metadata"
-                      aria-hidden="true"
-                    ></video>
+                <a class="new-social-card new-social-card--contact" href="https://t.me/desigggner" target="_blank" rel="noreferrer">
+                  <span class="new-social-card__image" aria-hidden="true">
+                    <img src="./assets/new/card-contact.jpg" alt="" loading="lazy" decoding="async" />
                   </span>
                   <span class="new-social-card__icon" aria-hidden="true">
                     <span class="new-icon new-icon--telegram new-icon--small">
@@ -570,6 +536,11 @@
                 </div>
               </div>
             </div>
+          </div>
+
+          <div class="new-contact-section__cursor" aria-hidden="true">
+            <img src="./assets/new/hero-cursor.svg" alt="" width="17" height="17" loading="lazy" decoding="async" />
+            <span>Влад</span>
           </div>
         </section>
 
