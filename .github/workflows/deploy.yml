@@ -4,16 +4,22 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+concurrency:
+  group: reg-ru-deploy
+  cancel-in-progress: true
 
 jobs:
   deploy:
+    name: FTP deploy
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy via FTP to REG.RU
+      - name: Deploy static site
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
@@ -23,11 +29,16 @@ jobs:
           server-dir: /www/vladgalanov.ru/
           exclude: |
             **/.git*
+            **/.git*/**
             **/.github/**
             **/node_modules/**
             README.md
             package.json
             package-lock.json
+            pnpm-lock.yaml
+            yarn.lock
+            deploy.yml
             .DS_Store
             .env
             .env.local
+            **/*.log
