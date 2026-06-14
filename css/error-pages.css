@@ -1,0 +1,208 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+html {
+  background: #000000;
+}
+
+body.portfolio-error-page {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #000000;
+  color: #ffffff;
+  font-family: "Google Sans", "Product Sans", Inter, "Segoe UI", system-ui, sans-serif;
+}
+
+.portfolio-error-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.55) 1.2px, transparent 1.35px);
+  background-position: 0 0;
+  background-size: 24px 24px;
+  opacity: 0.2;
+}
+
+.portfolio-error-shell {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 64px 24px;
+}
+
+.portfolio-error-brand {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 8px 14px;
+  border-radius: 9999px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-decoration: none;
+  transform: translateX(-50%);
+}
+
+.portfolio-error-brand span {
+  display: block;
+  white-space: nowrap;
+}
+
+.portfolio-error-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(640px, 100%);
+  padding: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  background: #0f0f0f;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.32);
+}
+
+.portfolio-error-kicker {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  margin: 0 0 20px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  background: #1a1a1a;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0;
+}
+
+.portfolio-error-title {
+  max-width: 560px;
+  margin: 0;
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 52px;
+  letter-spacing: 0;
+}
+
+.portfolio-error-description {
+  max-width: 520px;
+  margin: 16px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0;
+}
+
+.portfolio-error-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.portfolio-error-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 148px;
+  min-height: 48px;
+  padding: 12px 20px;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-decoration: none;
+  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+.portfolio-error-button:hover,
+.portfolio-error-button:focus-visible {
+  transform: translateY(-1px);
+}
+
+.portfolio-error-button:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 3px;
+}
+
+.portfolio-error-button--primary {
+  border: 1px solid #ffffff;
+  background: #ffffff;
+  color: #000000;
+}
+
+.portfolio-error-button--secondary {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+@media (max-width: 720px) {
+  .portfolio-error-shell {
+    min-height: 100svh;
+    padding: 88px 16px 32px;
+  }
+
+  .portfolio-error-brand {
+    top: 10px;
+  }
+
+  .portfolio-error-card {
+    align-items: flex-start;
+    padding: 28px;
+    text-align: left;
+  }
+
+  .portfolio-error-title {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .portfolio-error-description {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .portfolio-error-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .portfolio-error-button {
+    flex: 1 1 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-error-button {
+    transition: none;
+  }
+
+  .portfolio-error-button:hover,
+  .portfolio-error-button:focus-visible {
+    transform: none;
+  }
+}

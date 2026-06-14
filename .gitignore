@@ -1,6 +1,12 @@
 .DS_Store
 .env
 .env.local
+.env.*.local
+node_modules/
+dist/
+dist-com/
+out/
+build/
 .analytics/
 .cases/
 artifacts/
