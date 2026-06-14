@@ -371,7 +371,7 @@ html {
 }
 
 .new-intro .new-social-card--channel {
-  --new-social-avatar: url("../assets/new/card-desigggner.jpg");
+  --new-social-avatar: url("../assets/new/telegram-channel-avatar.webp");
 }
 
 .new-intro .new-social-card--contact {
@@ -1250,7 +1250,7 @@ html {
 }
 
 .new-social-cards--contact .new-social-card--channel {
-  --new-social-avatar: url("../assets/new/card-desigggner.jpg");
+  --new-social-avatar: url("../assets/new/telegram-channel-avatar.webp");
 }
 
 .new-social-cards--contact .new-social-card--contact {
